@@ -1,0 +1,23 @@
+/* ==========================================================================
+   TEMPORARY -- placeholder bands. Delete rules from here as each real
+   section component lands.
+   ========================================================================== */
+
+.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    border-bottom: 1px solid #21293D;
+}
+
+.placeholder:nth-child(even) {
+    background-color: #0D1220;
+}
+
+.placeholder h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #79839A;
+}

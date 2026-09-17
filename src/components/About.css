@@ -1,0 +1,173 @@
+.about {
+  padding: 120px 280px;
+  background: #0d1220;
+}
+
+.section-kicker {
+  color: #3b82f6;
+  font-family: monospace;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left column */
+.about-image-card {
+  position: relative;
+  border: 1px solid #21293d;
+  border-radius: 20px;
+  background: #111726;
+  overflow: hidden;
+  height: 360px;
+}
+
+.about-role-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  background: rgba(8, 11, 20, 0.8);
+  border: 1px solid #21293d;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-spec-sheet {
+  margin: 24px 0 0;
+  border-top: 1px solid #21293d;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #21293d;
+}
+
+.spec-row dt {
+  color: #79839a;
+  font-size: 0.85rem;
+}
+
+.spec-row dd {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Right column */
+.about-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0 0 24px;
+}
+
+.about-heading-accent {
+  background: linear-gradient(135deg, #9146f0, #44b0eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-right p {
+  color: #afb8cc;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-right strong {
+  color: #ffffff;
+}
+
+.about-motto {
+  font-style: italic;
+  color: #9146f0;
+  border-left: 2px solid #9146f0;
+  padding-left: 16px;
+  margin: 24px 0;
+}
+
+.about-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.trait-chip {
+  background: #111726;
+  border: 1px solid #21293d;
+  color: #afb8cc;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.trait-chip:hover {
+  border-color: #9146f0;
+  color: #9146f0;
+}
+
+.about-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.about-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #21293d;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.about-link-btn:hover {
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 80px 6vw;
+  }
+
+  .about-image-card {
+    height: 280px;
+  }
+
+  .about-links {
+    justify-content: center;
+  }
+
+  .about-traits {
+    justify-content: center;
+  }
+}

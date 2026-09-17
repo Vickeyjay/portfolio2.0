@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Global Reset
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #080B14;
+    color: #AFB8CC;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+/* Stops the fixed navbar from covering a section heading when you
+   click a nav link and jump to it */
+section {
+    scroll-margin-top: 70px;
+}
+
+
+/* Utilities */
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+/* Keyboard users need to see where they are. Mouse users never
+   trigger this, so it costs nothing visually. */
+:focus-visible {
+    outline: 2px solid #3B82F6;
+    outline-offset: 3px;
+}
+
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+

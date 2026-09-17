@@ -1,0 +1,133 @@
+.skills {
+  padding: 120px 6vw;
+}
+
+.skills-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #ffffff;
+  margin: 0 0 40px;
+}
+
+.skills-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+  border: 1px solid #21293d;
+  border-radius: 999px;
+  padding: 6px;
+  width: fit-content;
+}
+
+.skills-tab {
+  background: transparent;
+  border: none;
+  color: #79839a;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.skills-tab-active {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.skills-panel {
+  min-height: 260px;
+}
+
+/* Technical bars */
+.skill-bars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 60px;
+  max-width: none; /* was 640px, capping it to one narrow column */
+}
+
+@media (max-width: 700px) {
+  .skill-bars {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-bar-label {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 8px;
+  background: #111726;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9146f0, #44b0eb);
+}
+
+/* Tools / Soft skills grid */
+.icon-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.icon-card {
+  background: #111726;
+  border: 1px solid #21293d;
+  border-radius: 16px;
+  padding: 24px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-card:hover {
+  background: #182034;
+  border-color: #3b82f6;
+}
+
+.icon-card-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(145, 70, 240, 0.12);
+  color: #9146f0;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.icon-card h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.icon-card p {
+  color: #79839a;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+@media (max-width: 700px) {
+  .skills-tabs {
+    width: 100%;
+    overflow-x: auto; /* lets the pill row scroll sideways instead of wrapping awkwardly */
+  }
+
+  .skill-bars {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:claude.ai)",
+      "Bash(npm -v)",
+      "Bash(git --version)",
+      "Bash(npm create *)",
+      "Bash(npx create-vite@latest --help)",
+      "Bash(npm uninstall *)",
+      "Bash(node -e \"const p=require\\('./package.json'\\);console.log\\(JSON.stringify\\({dependencies:p.dependencies,devDependencies:p.devDependencies},null,2\\)\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(node -e \"let s='';process.stdin.on\\('data',d=>s+=d\\).on\\('end',\\(\\)=>{try{const c=JSON.parse\\(s\\).compilerOptions;console.log\\('strict:',c.strict\\);console.log\\('strictNullChecks:',c.strictNullChecks\\);console.log\\('noImplicitAny:',c.noImplicitAny\\);}catch\\(e\\){console.log\\('RAW:',s.slice\\(0,600\\)\\)}}\\)\")",
+      "Bash(powershell -NoProfile -Command \"Get-ExecutionPolicy -List | Format-Table -AutoSize\")"
+    ]
+  }
+}

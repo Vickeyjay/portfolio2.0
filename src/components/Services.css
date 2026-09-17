@@ -1,0 +1,107 @@
+.services {
+  position: relative;
+  padding: 120px 6vw;
+  background: #080b14;
+}
+
+.services-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: #ffffff;
+  margin: 0 0 48px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  position: relative;
+  background: #111726;
+  border: 1px solid #21293d;
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.service-card:hover {
+  border-color: #3b82f6;
+  background: #182034;
+  transform: translateY(-4px);
+}
+
+.service-number {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: monospace;
+  color: #21293d;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(145, 70, 240, 0.15), rgba(68, 176, 235, 0.15));
+  color: #9146f0;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+}
+
+.service-card p {
+  color: #79839a;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.service-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-bullets li {
+  color: #afb8cc;
+  font-size: 0.8rem;
+  padding-left: 18px;
+  position: relative;
+}
+
+.service-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #44b0eb;
+}
+
+.service-arrow {
+  display: inline-block;
+  color: #79839a;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.service-card:hover .service-arrow {
+  transform: translateX(6px);
+  color: #9146f0;
+}

@@ -1,0 +1,40 @@
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid #21293d;
+  border-bottom: 1px solid #21293d;
+  padding: 16px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  /* Two identical halves side by side -- animating exactly -50% slides the
+     first half fully off-screen at the exact moment the second half (an
+     identical copy) lines up where the first one started. No visible seam. */
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  color: #79839a;
+  font-family: monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0 20px;
+}
+
+.marquee-glyph {
+  margin-left: 20px;
+  color: #9146f0;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
