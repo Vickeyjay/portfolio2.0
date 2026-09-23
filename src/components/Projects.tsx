@@ -178,7 +178,7 @@ export default function Projects() {
       </div>
 
       <div className="projects-grid">
-        {visibleProjects.map((project, i) => (
+        {visibleProjects.map((project) => (
         <div key={project.title} className="project-card">
             <div className="project-image">
               <img src={project.image} alt={project.title} />
