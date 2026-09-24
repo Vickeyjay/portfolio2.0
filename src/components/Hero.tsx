@@ -215,7 +215,7 @@ export default function Hero() {
 
     <div className="hero-portrait-card">
       <img
-        src="/src/assets/profile-cutout.png"
+        src="/src/assets/projects/profile-cutout.png"
         alt="Ajayi Victor"
         className="hero-portrait-img"
       />

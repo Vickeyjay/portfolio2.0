@@ -28,7 +28,7 @@ export default function About() {
           <div className="about-image-card">
             <span className="about-role-label">Full Stack Developer</span>
             <img
-              src="/src/assets/2.png"
+              src="/src/assets/projects/2.png"
               alt="Ajayi Victor"
               className="about-image"
             />
