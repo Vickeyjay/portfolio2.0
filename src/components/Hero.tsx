@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaXTwitter, FaWhatsapp} from 'react-icons/fa6'
 import ParticleBackground from './ParticleBackground'
 import './Hero.css'
 import ScrollCue from './ScrollCue'
+import profileImg from '../assets/projects/profile-cutout.png'
 
 const ROLES = ['Full Stack Developer', 'React.js Specialist', 'MERN Stack Engineer', 'Software Engineer', 'Robotics Specialist']
 const ORBIT_TAGS = ['JS', 'Git', 'HTML', 'CSS', 'MongoDB']
@@ -215,7 +216,7 @@ export default function Hero() {
 
     <div className="hero-portrait-card">
       <img
-        src="/src/assets/projects/profile-cutout.png"
+        src={profileImg}
         alt="Ajayi Victor"
         className="hero-portrait-img"
       />

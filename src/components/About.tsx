@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter, FaWhatsapp } from 'react-icons/fa6'
 import './About.css'
 import ScrollCue from './ScrollCue'
+import aboutImg from '../assets/projects/about.png'
 
 const SPEC_SHEET = [
   { label: 'Name', value: 'Ajayi Victor' },
@@ -28,7 +29,7 @@ export default function About() {
           <div className="about-image-card">
             <span className="about-role-label">Full Stack Developer</span>
             <img
-              src="/src/assets/projects/2.png"
+              src={aboutImg}
               alt="Ajayi Victor"
               className="about-image"
             />
