@@ -14,6 +14,8 @@ import tokoraImg from '../assets/projects/tokora.png'
 import verdImg from '../assets/projects/verd.png'
 import vickoredeImg from '../assets/projects/vickorede.png'
 import zakomImg from '../assets/projects/zakom.png'
+import upskillImg from '../assets/projects/upskill.png'
+import graceImg from '../assets/projects/grace.png'
 
 import { useIsMobile } from '../hooks/useIsMobile'
 
@@ -32,6 +34,41 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
+    {
+    title: 'Verd',
+    blurb: 'A DeFi-powered waitlist landing page for a system designed to help money grow and compound automatically.',
+    category: 'Web',
+    tech: ['React', 'Tailwind CSS'],
+    image: verdImg,
+    repo: 'https://github.com/Vickeyjay/Verd',
+    live: 'https://verdfinance.com/',
+  },
+  {
+    title: 'FancyGiftsPlace',
+    blurb: 'A WooCommerce storefront selling gift and kitchenware products, with a full shop, cart, and checkout flow.',
+    category: 'Web',
+    tech: ['WordPress', 'WooCommerce'],
+    image: fancyImg,
+    live: 'https://fancygiftsplace.com/',
+  },
+    {
+    title: 'Zakom Medical Diagnostics',
+    blurb: 'A diagnostics-center website built around booking appointments and presenting services clearly to patients.',
+    category: 'Web',
+    tech: ['React', 'Tailwind CSS'],
+    image: zakomImg,
+    repo: 'https://github.com/Vickeyjay/ZAKOM-Medical-Diagnostics',
+    live: 'https://zakomediagnostics.com/',
+  },
+      {
+    title: 'Upskill',
+    blurb: 'An AI-powered learning platform that builds a custom tech curriculum around your level and schedule, then tests you with quizzes and realistic on-the-job workflow simulations.',
+    category: 'App',
+    tech: ['React', 'TypeScript', 'AI', 'CSS'],
+    image: upskillImg,
+    repo: 'https://github.com/Vickeyjay/upskill',
+    live: 'https://upskillstack.vercel.app/',
+  },
   {
     title: 'Keke Cruise',
     blurb: 'A ride-booking platform connecting passengers with local tricycle (keke) drivers for quick, affordable trips.',
@@ -68,15 +105,6 @@ const PROJECTS: Project[] = [
     repo: 'https://github.com/Vickeyjay/Income-and-Expense-Management-System',
   },
   {
-    title: 'Zakom Medical Diagnostics',
-    blurb: 'A diagnostics-center website built around booking appointments and presenting services clearly to patients.',
-    category: 'Web',
-    tech: ['React', 'Tailwind CSS'],
-    image: zakomImg,
-    repo: 'https://github.com/Vickeyjay/ZAKOM-Medical-Diagnostics',
-    live: 'https://zakomediagnostics.com/',
-  },
-  {
     title: 'EdgeLedger',
     blurb: 'A finance-services website presenting world-class financial assistance with a clean, confident visual identity.',
     category: 'Web',
@@ -86,15 +114,6 @@ const PROJECTS: Project[] = [
     live: 'https://edge-ledger-website-kappa.vercel.app/',
   },
   {
-    title: 'Verd',
-    blurb: 'A DeFi-powered waitlist landing page for a system designed to help money grow and compound automatically.',
-    category: 'Web',
-    tech: ['React', 'Tailwind CSS'],
-    image: verdImg,
-    repo: 'https://github.com/Vickeyjay/Verd',
-    live: 'https://verdfinance.com/',
-  },
-  {
     title: 'Tokora',
     blurb: 'A crypto-powered marketplace concept for local commerce, prioritizing user privacy and secure transactions.',
     category: 'Web',
@@ -102,6 +121,15 @@ const PROJECTS: Project[] = [
     image: tokoraImg,
     repo: 'https://github.com/Vickeyjay/Tokora',
     live: 'https://tokora.vercel.app/',
+  },
+    {
+    title: 'Grace Owojaiye',
+    blurb: 'A professional website for an executive and administrative virtual assistant, built to bring structure, efficiency, and support to clients and make booking a discovery call easy.',
+    category: 'Web',
+    tech: ['React', 'TypeScript', 'Tailwind CSS'],
+    image: graceImg,
+    repo: 'https://github.com/Vickeyjay/YOUR-GRACE-REPO',
+    live: 'https://grace-owojaiye.vercel.app/',
   },
   {
     title: 'Hotel Website',
@@ -120,14 +148,6 @@ const PROJECTS: Project[] = [
     image: sprintenImg,
     repo: 'https://github.com/Vickeyjay/SprintenOfficialApp',
     live: 'https://sprinten-official-app.vercel.app/',
-  },
-  {
-    title: 'FancyGiftsPlace',
-    blurb: 'A WooCommerce storefront selling gift and kitchenware products, with a full shop, cart, and checkout flow.',
-    category: 'Web',
-    tech: ['WordPress', 'WooCommerce'],
-    image: fancyImg,
-    live: 'https://fancygiftsplace.com/',
   },
 ]
 
