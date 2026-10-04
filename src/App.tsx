@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import BottomDock from './components/BottomDock'
 import Hero from './components/Hero'
 
 import './App.css'
@@ -18,6 +19,7 @@ function App() {
             <Preloader />
             <CustomCursor />
             <Navbar />
+            <BottomDock />
 
             <main>
                 <Hero />

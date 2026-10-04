@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #060810;
+  background: var(--g0);
   transition: opacity 0.4s ease;
 }
 
@@ -26,32 +26,32 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
-  width:100%;
+  width: 100%;
 }
 
 .preloader-welcome {
   font-size: clamp(1.6rem, 4vw, 2.8rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--fg);
   margin: 0 0 28px;
   white-space: nowrap;
 }
 
 .preloader-dot {
-  color: #44b0eb;
+  color: var(--green2);
 }
 
 .preloader-status {
-  font-family: monospace;
-  color: #79839a;
+  font-family: var(--mono);
+  color: var(--fg3);
   font-size: 0.85rem;
   margin: 0 0 20px;
   min-height: 1.4em;
 }
 
 .preloader-line {
-  font-family: monospace;
-  color: #afb8cc;
+  font-family: var(--mono);
+  color: var(--fg2);
   font-size: 0.95rem;
   margin: 0 0 20px;
   min-height: 1.4em;
@@ -63,7 +63,7 @@
   width: 240px;
   max-width: 60%;
   height: 3px;
-  background: #182034;
+  background: var(--g3);
   border-radius: 999px;
   overflow: hidden;
   margin: 0 auto;
@@ -71,13 +71,14 @@
 
 .preloader-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #9146f0, #44b0eb);
+  background: linear-gradient(90deg, var(--green2), var(--green));
+  box-shadow: 0 0 10px var(--greenglow);
   transition: width 0.1s linear;
 }
 
 .preloader-percent {
-  font-family: monospace;
-  color: #44b0eb;
+  font-family: var(--mono);
+  color: var(--green2);
   font-size: 0.85rem;
   margin: 0;
 }

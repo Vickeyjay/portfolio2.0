@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { navLinks } from '../data/navigation'
+import { HOME_LINK, NAV_ICONS } from '../data/navIcons'
 import './Navbar.css'
 
 function Navbar() {
@@ -60,38 +61,38 @@ function Navbar() {
    view and updates activeLink to match, so the nav highlights the
    right link even when the user scrolls manually instead of clicking.
    ------------------------------------------------------------------ */
-useEffect(() => {
-    const sectionIds = ['hero', ...navLinks.map((link) => link.href.replace('#', ''))]
+    useEffect(() => {
+        const sectionIds = ['hero', ...navLinks.map((link) => link.href.replace('#', ''))]
 
-    // Some sections might not exist yet (Skills/Contact/etc. before
-    // they're built) -- document.getElementById returns null for those.
-    // This filter both removes the nulls AND tells TypeScript the
-    // result is now HTMLElement[], not (HTMLElement | null)[].
-    const sections = sectionIds
-        .map((id) => document.getElementById(id))
-        .filter((el): el is HTMLElement => el !== null)
+        // Some sections might not exist yet (Skills/Contact/etc. before
+        // they're built) -- document.getElementById returns null for those.
+        // This filter both removes the nulls AND tells TypeScript the
+        // result is now HTMLElement[], not (HTMLElement | null)[].
+        const sections = sectionIds
+            .map((id) => document.getElementById(id))
+            .filter((el): el is HTMLElement => el !== null)
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveLink(`#${entry.target.id}`)
-                }
-            })
-        },
-        // Shrinks the "visible" zone the observer checks against down to a
-        // thin horizontal line through the middle of the screen (50% off
-        // the top, 50% off the bottom leaves 0% in the middle). A section
-        // is only reported as "intersecting" once it crosses that line --
-        // without this, whichever section merely OVERLAPS the viewport at
-        // all counts, so two sections can appear "active" simultaneously
-        // during a fast scroll.
-        { rootMargin: '-50% 0px -50% 0px' },
-    )
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(`#${entry.target.id}`)
+                    }
+                })
+            },
+            // Shrinks the "visible" zone the observer checks against down to a
+            // thin horizontal line through the middle of the screen (50% off
+            // the top, 50% off the bottom leaves 0% in the middle). A section
+            // is only reported as "intersecting" once it crosses that line --
+            // without this, whichever section merely OVERLAPS the viewport at
+            // all counts, so two sections can appear "active" simultaneously
+            // during a fast scroll.
+            { rootMargin: '-50% 0px -50% 0px' },
+        )
 
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
-}, [])
+        sections.forEach((section) => observer.observe(section))
+        return () => observer.disconnect()
+    }, [])
 
     /* `href: string` is the one annotation TypeScript genuinely needs.
        It can't guess what a parameter will be handed, so we tell it.
@@ -114,21 +115,28 @@ useEffect(() => {
                     <span className="bracket">/&gt;</span>
                 </a>
 
-                {/* Desktop links. `.map()` turns each object in the array into
-                    an <li>. The `key` lets React tell the items apart when the
-                    list changes -- it warns in the console without one. */}
+                {/* Desktop links, now icons. Home is added in front of navLinks.
+                    `data-label` feeds the tooltip in CSS (it appears below the
+                    icon), and `aria-label` keeps it readable for screen readers.
+                    If a link has no icon in NAV_ICONS, its text shows instead. */}
                 <ul className="nav-links">
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <a
-                                href={link.href}
-                                className={activeLink === link.href ? 'active' : ''}
-                                onClick={() => selectLink(link.href)}
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
+                    {[HOME_LINK, ...navLinks].map((link) => {
+                        const Icon = NAV_ICONS[link.href]
+
+                        return (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    className={activeLink === link.href ? 'active' : ''}
+                                    data-label={link.label}
+                                    aria-label={link.label}
+                                    onClick={() => selectLink(link.href)}
+                                >
+                                    {Icon ? <Icon aria-hidden="true" /> : link.label}
+                                </a>
+                            </li>
+                        )
+                    })}
                 </ul>
 
                 <div className="nav-cta">

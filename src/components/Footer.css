@@ -1,7 +1,8 @@
 .site-footer {
   position: relative;
   overflow: hidden;
-  background: #080b14;
+  background: linear-gradient(180deg, var(--g1) 0%, var(--g0) 100%);
+  border-top: 1px solid var(--edge);
   padding: 60px 6vw 70px;
 }
 
@@ -22,16 +23,19 @@
 .footer-monogram {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--fg);
   margin: 0 0 6px;
 }
 
 .footer-monogram span {
-  color: #44b0eb;
+  background: var(--silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .footer-tagline {
-  color: #79839a;
+  color: var(--fg3);
   font-size: 0.85rem;
   margin: 0;
 }
@@ -48,22 +52,23 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #111726;
-  border: 1px solid #21293d;
-  color: #afb8cc;
+  background: linear-gradient(145deg, var(--g3), var(--g2));
+  border: 1px solid var(--edge);
+  color: var(--fg2);
   font-size: 0.95rem;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .footer-social-icon:hover {
-  background: #182034;
-  border-color: #3b82f6;
-  color: #ffffff;
+  background: linear-gradient(145deg, var(--g4), var(--g3));
+  border-color: var(--edge2);
+  color: var(--fg);
+  box-shadow: 0 0 16px var(--greenglow);
 }
 
 .footer-divider {
   height: 1px;
-  background: #21293d;
+  background: var(--edge);
   margin-bottom: 24px;
 }
 
@@ -76,16 +81,16 @@
 
 .footer-copyright,
 .footer-credential {
-  color: #79839a;
+  color: var(--fg3);
   font-size: 0.8rem;
   margin: 0;
 }
 
 .footer-heart {
-  color: #ef4444;
+  color: var(--red);
 }
 
-/* Giant background wordmark -- barely-there this time */
+/* Giant background wordmark -- barely-there silver */
 .footer-bg-text {
   position: absolute;
   bottom: 0;
@@ -99,10 +104,9 @@
   line-height: 1;
   margin: 0;
   transform: translateY(38%);
-  color: rgba(145, 70, 240, 0.05);
+  color: rgba(225, 230, 238, 0.05);
   pointer-events: none;
 }
-
 
 @media (max-width: 600px) {
   .footer-top {

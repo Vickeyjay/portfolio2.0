@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  color: #79839a;
+  color: var(--fg3);
   font-size: 0.75rem;
   z-index: 2;
 }
@@ -15,21 +15,12 @@
 .scroll-cue span {
   width: 1px;
   height: 30px;
-  background: linear-gradient(#3b82f6, transparent);
+  background: linear-gradient(var(--green), transparent);
   animation: scrollLine 1.6s ease-in-out infinite;
 }
 
 @keyframes scrollLine {
-  0% {
-    transform: scaleY(0.3);
-    opacity: 0.4;
-  }
-  50% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(0.3);
-    opacity: 0.4;
-  }
+  0%   { transform: scaleY(0.3); opacity: 0.4; }
+  50%  { transform: scaleY(1);   opacity: 1; }
+  100% { transform: scaleY(0.3); opacity: 0.4; }
 }

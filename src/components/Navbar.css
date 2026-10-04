@@ -7,7 +7,6 @@
     justify-content: space-around;
     align-items: center;
     gap: 24px;
-    /* padding: 16px 180px; */
     position: fixed;
     top: 0;
     left: 0;
@@ -16,32 +15,31 @@
     z-index: 100;
     background-color: transparent;
     border-bottom: 1px solid transparent;
-    transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+    transition: transform .35s var(--ease), opacity .3s ease;
 }
 
-/* Added by React once you scroll past 20px */
+/* Added by React once you scroll past 20px.
+   The top bar slides away; the bottom dock takes over. */
 .navbar.scrolled {
-    background-color: rgba(8, 11, 20, 0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid #21293D;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 
 /* Logo */
 
 .navbar .logo {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-family: var(--mono);
     font-size: 20px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--fg);
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .navbar .logo .bracket {
-    background: linear-gradient(135deg, #9146f0, #44b0eb);
+    background: var(--silver);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -49,45 +47,77 @@
 }
 
 .navbar .logo:hover .bracket {
-    color: #60A5FA;
+    color: var(--green2);
 }
 
 
-/* Nav links pill */
+/* Nav links pill (icons) */
 
 .navbar .nav-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
-    background-color: #111726;
-    border: 1px solid #21293D;
-    padding: 6px 8px;
+    gap: 8px;
+    margin-top: 10px;
+    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)); */
+    border: 1px solid var(--edge);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px;
     border-radius: 41px;
 }
 
 .nav-links li a {
-    display: block;
-    padding: 8px 18px;
-    border-radius: 20.5px;
-    color: #AFB8CC;
-    font-size: 14px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: var(--fg2);
+    font-size: 1rem;
     font-weight: 500;
     white-space: nowrap;
     transition: color .2s ease, background-color .2s ease;
+    border: 1px solid var(--edge);
 }
 
-.nav-links li a:hover {
-    background: linear-gradient(135deg, #9146f0, #44b0eb);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-color: #182034;
+.nav-links li a:hover,
+.nav-links li a:focus-visible {
+    color: var(--fg);
+    background-color: var(--g3);
 }
 
+/* Active link = white silver circle, like the Revenue nav */
 .nav-links li a.active {
-    color: #FFFFFF;
-    background-color: #3b83f680;
+    color: var(--green-ink);
+    background: var(--silver);
+}
+
+/* Tooltip: the name appears BELOW the icon on hover or keyboard focus */
+.nav-links li a::after {
+    content: attr(data-label);
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translate(-50%, -6px);
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--g2);
+    border: 1px solid var(--edge);
+    color: var(--fg);
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 
@@ -101,26 +131,27 @@
 }
 
 .nav-cta .hire-btn {
-    background: linear-gradient(135deg, #9146f0, #44b0eb);
+    background: var(--silver);
     padding: 10px 22px;
     border-radius: 41px;
-    color: #FFFFFF;
+    color: var(--green-ink);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     white-space: nowrap;
-    transition: background-color .2s ease-in, transform .2s ease;
+    transition: filter .2s ease, transform .2s var(--ease), box-shadow .2s ease;
 }
 
 .nav-cta .hire-btn:hover {
-    background-color: #60A5FA;
+    filter: brightness(1.08);
     transform: translateY(-2px);
+    box-shadow: 0 6px 24px var(--greenglow);
 }
 
 .navbar .hamburger {
     display: none;
     align-items: center;
     font-size: 26px;
-    color: #FFFFFF;
+    color: var(--fg);
     padding: 2px;
 }
 
@@ -133,7 +164,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(8, 11, 20, 0.7);
+    background-color: rgba(12, 13, 15, 0.7);
     backdrop-filter: blur(2px);
     z-index: 150;
     opacity: 0;
@@ -153,8 +184,8 @@
     width: 320px;
     max-width: 80%;
     height: 100dvh;
-    background-color: #0D1220;
-    border-left: 1px solid #21293D;
+    background: linear-gradient(160deg, var(--g3) 0%, var(--g1) 45%);
+    border-left: 1px solid var(--edge);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,7 +193,7 @@
     padding: 40px 26px;
     z-index: 200;
     transform: translateX(100%);
-    transition: transform .35s ease;
+    transition: transform .35s var(--ease);
 }
 
 .mobile-menu.open {
@@ -174,12 +205,12 @@
     top: 20px;
     right: 22px;
     font-size: 26px;
-    color: #AFB8CC;
+    color: var(--fg2);
     transition: color .2s ease;
 }
 
 .mobile-menu .close-btn:hover {
-    color: #FFFFFF;
+    color: var(--fg);
 }
 
 .mobile-menu .mobile-links {
@@ -194,41 +225,37 @@
     gap: 14px;
     padding: 14px 18px;
     border-radius: 12px;
-    color: #AFB8CC;
+    color: var(--fg2);
     font-size: 16px;
     font-weight: 500;
     transition: color .2s ease, background-color .2s ease;
 }
 
-.mobile-links li a:hover {
-    color: #FFFFFF;
-    background-color: #182034;
-}
-
+.mobile-links li a:hover,
 .mobile-links li a.active {
-    color: #FFFFFF;
-    background-color: #182034;
+    color: var(--fg);
+    background-color: var(--g3);
 }
 
 .mobile-links li a .num {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-family: var(--mono);
     font-size: 12px;
-    color: #3B82F6;
+    color: var(--fg3);
 }
 
 .mobile-menu .mobile-hire-btn {
-    background-color: #3B82F6;
+    background: var(--silver);
     padding: 14px 22px;
     border-radius: 41px;
-    color: #FFFFFF;
+    color: var(--green-ink);
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
-    transition: background-color .2s ease-in;
+    transition: filter .2s ease;
 }
 
 .mobile-menu .mobile-hire-btn:hover {
-    background-color: #60A5FA;
+    filter: brightness(1.08);
 }
 
 
@@ -237,10 +264,6 @@
 @media (max-width: 1100px) {
     .navbar {
         padding: 16px 60px;
-    }
-
-    .nav-links li a {
-        padding: 8px 14px;
     }
 }
 
@@ -269,5 +292,12 @@
 
     .navbar .logo {
         font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .nav-links li a::after {
+        transition: none;
     }
 }

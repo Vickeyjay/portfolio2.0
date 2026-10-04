@@ -70,11 +70,6 @@ export default function About() {
             System) — all built primarily with <strong>React.js</strong> and
             the <strong>MERN stack</strong>.
           </p>
-          <p>
-            I currently lead development at Tokora Marketplace and take on
-            freelance projects, working closely with clients from first
-            concept through to a shipped product.
-          </p>
 
           <p className="about-motto">"Build it once, build it right."</p>
 
@@ -113,7 +108,7 @@ export default function About() {
         </motion.div>
       </div>
 
-            <ScrollCue />
+            {/* <ScrollCue /> */}
     </section>
   )
 }

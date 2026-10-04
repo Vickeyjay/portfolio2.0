@@ -1,0 +1,106 @@
+/* Floating bottom dock: slides up once the page is scrolled */
+
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 120;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(19, 20, 23, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--edge);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+  /* hidden state */
+  transform: translate(-50%, 140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s var(--ease), opacity 0.3s ease;
+}
+
+.dock.visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dock-item {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--edge);
+  background: transparent;
+  color: var(--fg2);
+  font-size: 1.05rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.25s var(--ease),
+    border-color 0.2s ease;
+}
+
+.dock-item:hover,
+.dock-item:focus-visible {
+  background: var(--g3);
+  color: var(--fg);
+  border-color: var(--edge2);
+  transform: translateY(-3px);
+}
+
+/* active section = silver circle, like the black one in your reference */
+.dock-item.active,
+.dock-item.active:hover {
+  background: var(--silver);
+  color: var(--green-ink);
+  border-color: transparent;
+}
+
+/* Tooltip: shows the name on hover or keyboard focus */
+.dock-item::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translate(-50%, 6px);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--g2);
+  border: 1px solid var(--edge);
+  color: var(--fg);
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.dock-item:hover::after,
+.dock-item:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 400px) {
+  .dock {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .dock-item {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dock,
+  .dock-item,
+  .dock-item::after {
+    transition: none;
+  }
+}

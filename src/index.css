@@ -1,4 +1,43 @@
 /* ==========================================================================
+   Design tokens (Revenue-style graphite + silver)
+   ========================================================================== */
+
+:root {
+    --g0: #0c0d0f;
+    --g1: #131417;
+    --g2: #1a1b1f;
+    --g3: #23252a;
+    --g4: #2e3036;
+
+    --fg: #eef0f2;
+    --fg2: #a3a8b0;
+    --fg3: #6c717a;
+
+    --edge: rgba(255, 255, 255, .12);
+    --edge2: rgba(255, 255, 255, .2);
+
+    --green: #e8ebef;
+    --green2: #b4bac3;
+    --green-ink: #0b0c0e;
+    --greenglow: rgba(225, 230, 238, .22);
+
+    --silver: linear-gradient(180deg, #ffffff 0%, #d9dde3 40%, #9aa1aa 100%);
+
+    --amber: #f2c14e;
+    --red: #ff6b6b;
+    --blue: #6aa9ff;
+    --live: #4ade80;
+
+    --r: 22px;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    --w: 1180px;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    color-scheme: dark;
+}
+
+
+/* ==========================================================================
    Global Reset
    ========================================================================== */
 
@@ -11,14 +50,14 @@
 }
 
 body {
-    background-color: #080B14;
-    color: #AFB8CC;
+    background-color: var(--g0);
+    color: var(--fg2);
     overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
-    color: #FFFFFF;
+    color: var(--fg);
     line-height: 1.2;
 }
 
@@ -26,6 +65,11 @@ h1, h2, h3, h4, h5, h6 {
    click a nav link and jump to it */
 section {
     scroll-margin-top: 70px;
+}
+
+::selection {
+    background: var(--fg);
+    color: var(--g0);
 }
 
 
@@ -56,14 +100,13 @@ button {
 /* Keyboard users need to see where they are. Mouse users never
    trigger this, so it costs nothing visually. */
 :focus-visible {
-    outline: 2px solid #3B82F6;
+    outline: 2px solid var(--green);
     outline-offset: 3px;
 }
 
-
+/* Hide the native cursor only where the custom cursor is shown */
 @media (pointer: fine) {
-  body {
-    cursor: none;
-  }
+    body {
+        cursor: none;
+    }
 }
-
