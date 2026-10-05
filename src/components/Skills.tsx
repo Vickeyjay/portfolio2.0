@@ -16,7 +16,7 @@ import {
   FaMicrochip,
 } from 'react-icons/fa'
 import './Skills.css'
-import ParticleBackground from './ParticleBackground'
+// import ParticleBackground from './ParticleBackground'
 import ScrollCue from './ScrollCue'
 
 // A union of string literals -- TabId can ONLY ever be one of these three
@@ -115,7 +115,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="skills">
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
       <p className="section-kicker">02 — Skills</p>
       <h2 className="skills-heading">My Tech <span className="built">Arsenal</span></h2>
 
