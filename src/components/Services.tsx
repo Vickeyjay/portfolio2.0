@@ -2,6 +2,7 @@ import type { IconType } from 'react-icons'
 import { FaCode, FaMobileAlt, FaMicrochip, FaTools } from 'react-icons/fa'
 import ScrollCue from './ScrollCue'
 import './Services.css'
+import ParticleBackground from './ParticleBackground'
 
 interface Service {
   icon: IconType
@@ -40,6 +41,7 @@ const SERVICES: Service[] = [
 export default function Services() {
   return (
     <section id="services" className="services">
+      <ParticleBackground />
       <p className="section-kicker">04 — Services</p>
       <h2 className="services-heading">What I Can Do <span className="built">For You</span></h2>
 
