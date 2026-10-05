@@ -157,7 +157,7 @@ export default function Skills() {
         {activeTab === 'soft' && <IconCardGrid items={SOFT_SKILLS} />}
       </motion.div>
 
-      {/* <ScrollCue /> */}
+      <ScrollCue />
     </section>
   )
 }

@@ -108,7 +108,7 @@ export default function About() {
         </motion.div>
       </div>
 
-            {/* <ScrollCue /> */}
+            <ScrollCue />
     </section>
   )
 }

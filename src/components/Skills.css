@@ -1,6 +1,7 @@
 .skills {
   padding: 120px 6vw;
   background: var(--g1);
+  position: relative;
 }
 
 .skills-heading {
