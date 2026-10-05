@@ -64,6 +64,7 @@
   border-color: var(--edge2);
   color: var(--fg);
   box-shadow: 0 0 16px var(--greenglow);
+  transform: translateY(-2px);
 }
 
 .footer-divider {

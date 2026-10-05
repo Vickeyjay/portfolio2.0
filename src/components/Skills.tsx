@@ -17,6 +17,7 @@ import {
 } from 'react-icons/fa'
 import './Skills.css'
 import ParticleBackground from './ParticleBackground'
+import ScrollCue from './ScrollCue'
 
 // A union of string literals -- TabId can ONLY ever be one of these three
 // exact strings, never any other string. This is called a discriminated
@@ -155,6 +156,8 @@ export default function Skills() {
         {activeTab === 'tools' && <IconCardGrid items={TOOLS} />}
         {activeTab === 'soft' && <IconCardGrid items={SOFT_SKILLS} />}
       </motion.div>
+
+      {/* <ScrollCue /> */}
     </section>
   )
 }
