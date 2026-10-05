@@ -47,23 +47,34 @@ function useTypewriter(words: string[], typingSpeed = 80, pause = 1500) {
   return text
 }
 
-function useCountUp(target: number, start: boolean, duration = 1200) {
+// `delay` = how long to wait (ms) before the count begins. The preloader
+// runs ~2200ms plus a 400ms fade, so 2700 starts the counters just as the
+// hero is revealed. If you change the preloader's duration, change this too.
+function useCountUp(target: number, start: boolean, duration = 1200, delay = 2700) {
   const [value, setValue] = useState(0)
 
   useEffect(() => {
     if (!start) return
-    let frame: number
-    const startTime = performance.now()
 
-    function tick(now: number) {
-      const progress = Math.min((now - startTime) / duration, 1)
-      setValue(Math.floor(progress * target))
-      if (progress < 1) frame = requestAnimationFrame(tick)
+    let frame = 0
+
+    const timer = setTimeout(() => {
+      const startTime = performance.now()
+
+      function tick(now: number) {
+        const progress = Math.min((now - startTime) / duration, 1)
+        setValue(Math.floor(progress * target))
+        if (progress < 1) frame = requestAnimationFrame(tick)
+      }
+
+      frame = requestAnimationFrame(tick)
+    }, delay)
+
+    return () => {
+      clearTimeout(timer)
+      cancelAnimationFrame(frame)
     }
-
-    frame = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(frame)
-  }, [start, target, duration])
+  }, [start, target, duration, delay])
 
   return value
 }

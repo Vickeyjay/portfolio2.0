@@ -16,6 +16,20 @@ const CODE_SNIPPETS = [
   '<motion.div animate={...} />',
 ]
 
+// Default VS Code "Dark+" token colours: keyword blue, variable light blue,
+// string orange, function yellow, type teal, number green, comment green,
+// control-flow pink.
+const VS_CODE_COLORS = [
+  '#569cd6',
+  '#9cdcfe',
+  '#f3efee',
+  '#dcdcaa',
+  '#131615',
+  '#b5cea8',
+  '#03051a',
+  '#c586c0',
+]
+
 export default function Preloader() {
   const [progress, setProgress] = useState(0)
   const [hidden, setHidden] = useState(false)
@@ -81,7 +95,8 @@ export default function Preloader() {
     function draw() {
       // a translucent fill instead of a full clear is what leaves each
       // falling character's fading trail behind it
-      ctx!.fillStyle = 'rgba(6, 8, 15, 0.15)'
+      ctx!.globalAlpha = 1
+      ctx!.fillStyle = 'rgba(12, 13, 15, 0.15)'
       ctx!.fillRect(0, 0, width, height)
       ctx!.font = `${FONT_SIZE}px monospace`
 
@@ -90,7 +105,13 @@ export default function Preloader() {
         const x = i * FONT_SIZE
         const y = drops[i] * FONT_SIZE
 
-        ctx!.fillStyle = Math.random() > 0.94 ? '#44b0eb' : 'rgba(145, 70, 240, 0.6)'
+        // most characters get a random VS Code colour at 60% opacity;
+        // about 1 in 16 is a brighter near-white "head" character
+        const bright = Math.random() > 0.94
+        ctx!.globalAlpha = bright ? 1 : 0.6
+        ctx!.fillStyle = bright
+          ? '#d4d4d4'
+          : VS_CODE_COLORS[Math.floor(Math.random() * VS_CODE_COLORS.length)]
         ctx!.fillText(char, x, y)
 
         // once a column scrolls past the bottom, randomly reset it to the
