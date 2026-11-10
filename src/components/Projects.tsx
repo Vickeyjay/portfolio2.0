@@ -128,7 +128,7 @@ const PROJECTS: Project[] = [
     category: 'Web',
     tech: ['React', 'TypeScript', 'Tailwind CSS'],
     image: graceImg,
-    repo: 'https://github.com/Vickeyjay/YOUR-GRACE-REPO',
+    repo: 'https://github.com/Vickeyjay/grace-portfolio',
     live: 'https://grace-owojaiye.vercel.app/',
   },
   {
